@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import pycountry
 
-text_file = open("./data/countries.txt", "r")
+text_file = open("/data/trends/countries.txt", "r")
 lines = text_file.read().split(',')
 
 countries = {}
@@ -31,4 +31,4 @@ for c in lines:
         print("fail", c)
         break
 
-df.to_csv("./data/countries_trend.csv")
+df.to_csv("/data/trend/countries_trend.csv")
