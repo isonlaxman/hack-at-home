@@ -2,3 +2,9 @@
 data/hopkins_data/df_new.csv
 data/hopkins_data/df_new_2.csv
 data/hopkins_data/hopkins_population.csv
+data/trends/final_data/USA_statewise_11terms.csv
+data/trends/final_data/USA_statewise_3.csv
+data/trends/final_data/USA_statewise_4.csv
+scripts/final_11terms.csv
+*.ipynb
+data/final/final_11terms.csv
