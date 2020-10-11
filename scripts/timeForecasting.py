@@ -22,7 +22,7 @@ csv_path, _ = os.path.splitext(zip_path)
 df = pd.read_csv(csv_path)
 
 # Update timing with csv format
-date_time = pd.to_datetime(df.pop('Date Time'), format='%d.%m.%Y %H:%M:%S')
+date_time = pd.to_datetime(df.pop('Date Time'), format='%Y-%m-%d %H:%M:%S')
 
 df.head()
 
@@ -35,26 +35,22 @@ week = 7
 df['Week sin'] = np.sin(timestamp_s * (2 * np.pi / week))
 df['Week cos'] = np.cos(timestamp_s * (2 * np.pi / week))
 
-plt.plot(np.array(df['Day sin'])[:25])
-plt.plot(np.array(df['Day cos'])[:25])
-plt.xlabel('Time [h]')
-plt.title('Time of day signal')
 
 # FFT of data
-fft = tf.signal.rfft(df['T (degC)'])
-f_per_dataset = np.arange(0, len(fft))
+# fft = tf.signal.rfft(df['T (degC)'])
+# f_per_dataset = np.arange(0, len(fft))
 
-n_samples_h = len(df['T (degC)'])
-hours_per_year = 24*365.2524
-years_per_dataset = n_samples_h/(hours_per_year)
+# n_samples_h = len(df['T (degC)'])
+# hours_per_year = 24*365.2524
+# years_per_dataset = n_samples_h/(hours_per_year)
 
-f_per_year = f_per_dataset/years_per_dataset
-plt.step(f_per_year, np.abs(fft))
-plt.xscale('log')
-plt.ylim(0, 400000)
-plt.xlim([0.1, max(plt.xlim())])
-plt.xticks([1, 365.2524], labels=['1/Year', '1/day'])
-_ = plt.xlabel('Frequency (log scale)')
+# f_per_year = f_per_dataset/years_per_dataset
+# plt.step(f_per_year, np.abs(fft))
+# plt.xscale('log')
+# plt.ylim(0, 400000)
+# plt.xlim([0.1, max(plt.xlim())])
+# plt.xticks([1, 365.2524], labels=['1/Year', '1/day'])
+# _ = plt.xlabel('Frequency (log scale)')
 
 # Split the Data
 column_indices = {name: i for i, name in enumerate(df.columns)}
