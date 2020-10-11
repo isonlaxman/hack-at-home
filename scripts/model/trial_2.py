@@ -17,7 +17,9 @@ df = pd.read_csv("../data/final/final_final.csv")
 # %%
 df = df[df["Province_State"] == "New York"]
 df = df.drop(["Province_State", "Lat", "Long_", "Confirmed", "Deaths", "STATE", "COUNTY", "POPESTIMATE2019", "Confirmed_Percent", "Deaths_Percent", "Confirmed_Percent_Smooth", "Deaths_Percent_Smooth", "Deaths_Smooth"], axis=1)
-df["date"] = pd.to_datetime(df["date"])
+#df["date"] = pd.to_datetime(df["date"])
+df.index = df[["date"]]
+df = df.drop(["date"], axis=1)
 df
 
 
