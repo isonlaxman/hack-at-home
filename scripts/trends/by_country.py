@@ -6,7 +6,7 @@ import time
 import pycountry
 
 ## %
-text_file = open("./data/trends/countries.txt", "r")
+text_file = open("../../data/trends/countries.txt", "r")
 lines = text_file.read().split(',')
 
 ## %
